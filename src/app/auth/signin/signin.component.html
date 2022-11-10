@@ -1,0 +1,94 @@
+<div class="align-center mt-3">
+  <img class="align-logo" src="assets/logo.PNG" alt="logo" />
+</div>
+
+<div class="container align mt-5">
+  <div class="align-center">
+    <h1 class="signin-text">Sign In</h1>
+  </div>
+  <form [formGroup]="loginForm">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label format-label"
+        >Email</label
+      >
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Enter Email id"
+          aria-label="Recipient's username"
+          formControlName="email"
+          aria-describedby="button-addon2"
+        />
+      </div>
+      <div
+        *ngIf="loginForm.controls['email'].errors?.required && isSubmitted"
+        id="emailHelp"
+        class="form-text error"
+      >
+        Email is required
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label format-label"
+        >Password</label
+      >
+      <div class="input-group mb-3">
+        <input
+          [type]="passwordType"
+          class="form-control"
+          placeholder="Enter Password"
+          formControlName="password"
+          aria-label="Recipient's username"
+          aria-describedby="button-addon2"
+        />
+        <button
+          class="btn btn-outline-secondary show-btn"
+          type="button"
+          id="button-addon2"
+          (click)="togglePasswordVisibility()"
+        >
+          Show
+        </button>
+      </div>
+      <div
+        *ngIf="loginForm.controls['password'].errors?.required && isSubmitted"
+        id="emailHelp"
+        class="form-text error"
+      >
+        Password is required.
+      </div>
+      <div
+        *ngIf="loginForm.controls['password'].errors?.minlength && isSubmitted"
+        id="emailHelp"
+        class="form-text error"
+      >
+        Length is small.
+      </div>
+      <div
+        *ngIf="
+          loginForm.controls['password'].errors?.InvalidCredentials &&
+          isSubmitted
+        "
+        id="emailHelp"
+        class="form-text error"
+      >
+        Incorrect Email or Password.
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <a (click)="onSubmit()" type="submit" class="btn btn-primary align-btn">
+          Submit
+        </a>
+      </div>
+      <div class="col-12 align-center mt-2">
+        <a href="#">Forgot Password ?</a>
+      </div>
+      <div class="col-12 align-center mt-2">
+        <p>Don't have an account? <a href="#">Sign Up</a></p>
+      </div>
+    </div>
+  </form>
+</div>
+

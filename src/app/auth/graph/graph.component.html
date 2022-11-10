@@ -1,0 +1,10 @@
+<div class="graph-cont" *ngIf="weekData">
+  <h1>Last 7 days Orders</h1>
+  <div class="bar bar1">MON {{ - weekData[6] }}</div>
+  <div class="bar bar2">TUE {{ - weekData[5] }}</div>
+  <div class="bar bar3">WED {{ - weekData[4] }}</div>
+  <div class="bar bar4">THU {{ - weekData[3] }}</div>
+  <div class="bar bar5">FRI {{ - weekData[2] }}</div>
+  <div class="bar bar6">SAT {{ - weekData[1] }}</div>
+  <div class="bar bar7">SUN {{ - weekData[0] }}</div>
+</div>
